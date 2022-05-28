@@ -8,7 +8,9 @@ function Course() {
   const [course, setCourse] = useState([]);
 
   const loadCourse = function () {
-    fetch(`https://gravityfalluniversity.herokuapp.com/course`)
+    fetch(`https://gravityfalluniversity.herokuapp.com/course`, {
+      mode: "no-cors",
+    })
       .then(res => res.json())
       .then(data => setCourse(data));
   };
