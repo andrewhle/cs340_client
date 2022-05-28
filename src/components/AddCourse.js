@@ -23,7 +23,7 @@ function AddCourse({ handleAddCourse }) {
     const newCourse = formData;
 
     try {
-      const response = await fetch("http://localhost:3000/course", {
+      const response = await fetch("https://gravityfalluniversity.herokuapp.com/course", {
         method: "POST",
         headers: {
           Accept: "application/json",

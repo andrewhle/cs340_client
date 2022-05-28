@@ -7,7 +7,7 @@ function Student() {
   const [student, setStudent] = useState([]);
 
   const loadStudent = function () {
-    fetch(`/student`)
+    fetch(`https://gravityfalluniversity.herokuapp.com/student`)
       .then(res => res.json())
       .then(data => setStudent(data));
   };
