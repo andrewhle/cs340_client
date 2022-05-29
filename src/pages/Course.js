@@ -3,22 +3,21 @@ import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { useState, useEffect } from "react";
 import AddCourse from "../components/AddCourse";
+import SearchCourse from "../components/SearchCourse";
 
 function Course() {
   const [course, setCourse] = useState([]);
 
   const loadCourse = function () {
-    fetch(`https://gravityfalluniversity.herokuapp.com/course`, {
-      mode: "no-cors",
-    })
-      .then(res => res.json())
-      .then(data => setCourse(data));
+    fetch(`/course`)
+      .then((res) => res.json())
+      .then((data) => setCourse(data));
   };
 
-  const handleAddCourse = course => {
+  const handleAddCourse = (course) => {
     //read up about concat() in JS
     //concar merge 2 array together and return a new array contain both array
-    setCourse(prevState => prevState.concat(course));
+    setCourse((prevState) => prevState.concat(course));
   };
 
   useEffect(() => loadCourse(), []);
@@ -37,7 +36,7 @@ function Course() {
           </tr>
         </thead>
         <tbody>
-          {course.map(course => (
+          {course.map((course) => (
             <tr key={course.course_id}>
               <td>{course.course_id}</td>
               <td>{course.course_name}</td>
@@ -52,7 +51,11 @@ function Course() {
           ))}
         </tbody>
       </table>
-      <AddCourse handleAddCourse={handleAddCourse} />
+
+      <div className="block-container">
+        <AddCourse handleAddCourse={handleAddCourse} />
+        <SearchCourse />
+      </div>
     </div>
   );
 }
