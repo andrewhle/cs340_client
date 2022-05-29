@@ -24,14 +24,17 @@ function AddStudent({ handleAddStudent }) {
     const newStudent = formData;
 
     try {
-      const response = await fetch("http://localhost:3000/student", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newStudent),
-      });
+      const response = await fetch(
+        "https://gravityfalluniversity.herokuapp.com/student",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newStudent),
+        }
+      );
       if (response.status === 201) {
         alert("Successfully added student");
         handleAddStudent(await response.json());

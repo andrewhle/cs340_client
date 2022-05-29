@@ -9,7 +9,7 @@ function Major() {
   const [major, setMajor] = useState([]);
 
   const loadMajor = function () {
-    fetch(`/major`)
+    fetch(`https://gravityfalluniversity.herokuapp.com/major`)
       .then(res => res.json())
       .then(data => setMajor(data));
   };
