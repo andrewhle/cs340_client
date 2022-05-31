@@ -1,9 +1,8 @@
-import React from "react";
-import { MdDelete } from "react-icons/md";
-import { MdEdit } from "react-icons/md";
-import { useState, useEffect } from "react";
-import AddCourse from "../components/AddCourse";
-import SearchCourse from "../components/SearchCourse";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import AddCourse from '../components/AddCourse';
+import SearchCourse from '../components/SearchCourse';
+import CourseItem from './CourseItem';
 
 function Course() {
   const [course, setCourse] = useState([]);
@@ -18,6 +17,27 @@ function Course() {
     //read up about concat() in JS
     //concar merge 2 array together and return a new array contain both array
     setCourse(prevState => prevState.concat(course));
+  };
+
+  const handleDelete = id => {
+    // call delete api
+    // if the request is successful, set course array that doesn't contain deleted course
+    setCourse(prevState => prevState.filter(course => course.course_id !== id));
+  };
+
+  const handleEdit = newCourse => {
+    // if the request is successful, replace the old course in array with new course.
+    setCourse(prevState => {
+      const oldCourse = [...prevState];
+
+      const courseIdx = oldCourse.findIndex(
+        course => course.course_id === newCourse.course_id
+      );
+
+      oldCourse[courseIdx] = newCourse;
+
+      return oldCourse;
+    });
   };
 
   useEffect(() => loadCourse(), []);
@@ -37,22 +57,17 @@ function Course() {
         </thead>
         <tbody>
           {course.map(course => (
-            <tr key={course.course_id}>
-              <td>{course.course_id}</td>
-              <td>{course.course_name}</td>
-              <td>{course.course_credit}</td>
-              <td>
-                <MdEdit />
-              </td>
-              <td>
-                <MdDelete />
-              </td>
-            </tr>
+            <CourseItem
+              key={course.course_id}
+              course={course}
+              handleDelete={handleDelete}
+              handleEdit={handleEdit}
+            />
           ))}
         </tbody>
       </table>
 
-      <div className="block-container">
+      <div className='block-container'>
         <AddCourse handleAddCourse={handleAddCourse} />
         <SearchCourse />
       </div>
