@@ -57,7 +57,7 @@ function AddStudent({ handleAddStudent }) {
           onChange={handleChange}
         ></input>
         <input
-          type="test"
+          type="text"
           name="firstName"
           placeholder="Enter First Name"
           value={formData.firstName}
@@ -80,7 +80,7 @@ function AddStudent({ handleAddStudent }) {
         <input
           type="text"
           name="dateOfBirth"
-          placeholder="Enter Date Of Birth"
+          placeholder="Enter Date Of Birth in format (yyyy-mm-dd)"
           value={formData.dateOfBirth}
           onChange={handleChange}
         ></input>

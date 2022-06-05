@@ -1,7 +1,6 @@
-import React from 'react';
-import { MdEdit, MdDelete } from 'react-icons/md';
-
-import EditForm from './EditForm';
+import React from "react";
+import { MdEdit, MdDelete } from "react-icons/md";
+import EditCourseForm from "../components/EditCourseForm";
 
 const CourseItem = ({ course, handleDelete, handleEdit }) => {
   const [isShow, setShow] = React.useReducer(state => !state, false);
@@ -20,7 +19,11 @@ const CourseItem = ({ course, handleDelete, handleEdit }) => {
       </tr>
       {isShow ? (
         <tr>
-          <EditForm course={course} onClose={setShow} handleEdit={handleEdit} />
+          <EditCourseForm
+            course={course}
+            onClose={setShow}
+            handleEdit={handleEdit}
+          />
         </tr>
       ) : null}
     </>
