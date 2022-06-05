@@ -1,6 +1,6 @@
 import React from "react";
 
-const FilterCourse = ({ onClose, data }) => {
+const FilterDepartment = ({ onClose, data }) => {
   const isEmpty = data.length === 0;
   return (
     <>
@@ -16,17 +16,19 @@ const FilterCourse = ({ onClose, data }) => {
           <table>
             <thead>
               <tr>
-                <th>Course Id</th>
-                <th>Course Name</th>
-                <th>Course Credit</th>
+                <th>Department Id</th>
+                <th>Department Name</th>
+                <th>Location</th>
+                <th>Campus</th>
               </tr>
             </thead>
             <tbody>
               {data.map(item => (
-                <tr key={item.course_id}>
-                  <td>{item.course_id}</td>
-                  <td>{item.course_name}</td>
-                  <td>{item.course_credit}</td>
+                <tr key={item.dept_id}>
+                  <td>{item.dept_id}</td>
+                  <td>{item.dept_name}</td>
+                  <td>{item.location}</td>
+                  <td>{item.campus}</td>
                 </tr>
               ))}
             </tbody>
@@ -37,4 +39,4 @@ const FilterCourse = ({ onClose, data }) => {
   );
 };
 
-export default FilterCourse;
+export default FilterDepartment;

@@ -3,6 +3,7 @@ import FilterCourse from "./FilterCourse";
 
 function SearchCourse() {
   const [isShow, setShow] = React.useReducer(state => !state, false);
+  //Whenever we set a new value in the form, it will be store in value
   const [value, setValue] = React.useState({
     course_id: "",
     course_name: "",
@@ -24,10 +25,16 @@ function SearchCourse() {
       );
       const result = await response.json();
       setData(result);
-    } catch (error) {}
+    } catch (error) {
+      console.error({
+        Success: false,
+        Error: `Failed to request from client`,
+      });
+    }
     setShow();
   };
 
+  //Whenever there change detect from the form, React will load a new value
   function handleChange(event) {
     setValue(prevState => ({
       ...prevState,

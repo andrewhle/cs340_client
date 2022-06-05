@@ -46,8 +46,8 @@ input {
 }
 
 p {
-  background: rgb(186, 219, 93);
-  opacity: 0.6;
+  background: rgb(165, 165, 165);
+  opacity: 0.7;
   font: 30px Arial, Helvetica, sans-serif;
 }
 
@@ -75,7 +75,7 @@ table {
   margin: auto;
   font-size: 0.9em;
   min-width: 400px;
-  background-color: whitesmoke;
+  background-color: transparent;
 }
 
 thead tr {
@@ -100,7 +100,7 @@ tbody tr:nth-of-type(even) {
 }
 
 tbody tr:nth-of-type(odd) {
-  background-color: rgb(165, 165, 165);
+  background-color: transparent;
 }
 
 .logo {
@@ -141,14 +141,17 @@ tbody tr:nth-of-type(odd) {
 }
 
 .edit-form-container {
-  width: 100%;
+  width: fit-content;
   min-width: 600px;
   position: fixed;
   inset: 0;
   margin: auto;
   height: fit-content;
   width: fit-content;
-  background: rgb(224, 224, 224);
+  background-image: url("https://onlyvectorbackgrounds.com/wp-content/uploads/2019/03/Gradient-Abstract-Shapes-Background-Purple.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 30px;
   padding: 80px;
 }
 
